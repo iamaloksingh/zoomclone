@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 
-const withAuth = (WrappedComponent ) => {
+const WithAuth = (WrappedComponent ) => {
     const AuthComponent = (props) => {
         const router = useNavigate();
 
@@ -24,4 +24,4 @@ const withAuth = (WrappedComponent ) => {
     return AuthComponent;
 }
 
-export default withAuth;
+export default WithAuth;
