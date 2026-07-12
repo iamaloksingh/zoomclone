@@ -8,7 +8,10 @@ let timeOnline = {}
 export const connectToSocket = (server) => {
     const io = new Server(server, {
         cors: {
-            origin: "*",
+            origin: [
+                "http://localhost:5173",
+                "https://zoomclonefrontendd.onrender.com"
+            ],
             methods: ["GET", "POST"],
             allowedHeaders: ["*"],
             credentials: true
