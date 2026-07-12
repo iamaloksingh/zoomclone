@@ -15,6 +15,7 @@ import userRoutes from "./routes/users.routes.js"
 
 const app = express();
 
+
 // Express app ko HTTP server ke saath wrap kiya
 
 const  server = createServer(app);
@@ -22,7 +23,10 @@ const  server = createServer(app);
 const io = connectToSocket(server);
 
  
-app.use(cors());
+app.use(cors({
+    origin: "https://zoomclonefrontendd.onrender.com",
+    credentials: true,
+}));
 
 app.use(express.json({limit:"40kb"}));
 
