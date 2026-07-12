@@ -1,6 +1,6 @@
 .landingPageContainer {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background: url("/public/background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,8 +32,9 @@
   display: flex;
   justify-content: space-between;
   padding-inline: 3rem;
-  height: 80vh;
+  min-height: 80vh;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .landingMainContainer>div:nth-child(1) {
@@ -55,8 +56,9 @@
 }
 
 .landingMainContainer>div:nth-child(2) img {
-  height: 70vh;
-  width: auto;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
 }
 
 .navBar {
@@ -70,9 +72,10 @@
 .meetContainer {
   display: flex;
   padding-inline: 20px;
-  height: 80vh;
+  height: auto;
   gap: 10vw;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 
@@ -93,4 +96,82 @@
   width: 30vw;
   height: auto;
   border-radius: 20px;
+}
+
+/* Responsive overrides for smaller screens */
+.landingPageContainer {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.landingMainContainer {
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  height: auto;
+}
+
+.landingMainContainer > div:nth-child(1) {
+  max-width: 600px;
+}
+
+.landingMainContainer > div:nth-child(2) img {
+  width: 100%;
+  max-width: 520px;
+}
+
+.meetContainer {
+  flex-wrap: wrap;
+  height: auto;
+  gap: 1.5rem;
+}
+
+.leftPanel,
+.rightPanel {
+  width: min(600px, 100%);
+}
+
+@media (max-width: 900px) {
+  .landingPageContainer nav {
+    padding-inline: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .landingPageContainer nav .navlist {
+    flex-wrap: wrap;
+  }
+
+  .landingMainContainer {
+    flex-direction: column;
+    padding-inline: 1.5rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) {
+    font-size: 1.8rem;
+  }
+
+  .rightPanel > img {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .landingPageContainer nav {
+    padding-inline: 0.8rem;
+  }
+  .landingPageContainer nav h2 {
+    font-size: 1.5rem;
+  }
+  .landingMainContainer > div:nth-child(1) {
+    font-size: 1.5rem;
+  }
+  .landingMainContainer > div:nth-child(1) div[role='button'] {
+    width: 100%;
+  }
+  .meetContainer {
+    padding-inline: 10px;
+    gap: 1rem;
+  }
 }
