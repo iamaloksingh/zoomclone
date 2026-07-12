@@ -15,7 +15,7 @@ const server = createServer(app);
 connectToSocket(server);
 
 const allowedOrigins = [
-  "https://zoomclonefrontendd.onrender.com",
+  "https://zoomclonefrontend-9x0a.onrender.com",
   "http://localhost:5173",
 ];
 

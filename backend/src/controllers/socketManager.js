@@ -10,7 +10,7 @@ export const connectToSocket = (server) => {
         cors: {
             origin: [
                 "http://localhost:5173",
-                "https://zoomclonefrontendd.onrender.com"
+                "https://zoomclonefrontend-9x0a.onrender.com"
             ],
             methods: ["GET", "POST"],
             allowedHeaders: ["*"],
