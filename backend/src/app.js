@@ -23,10 +23,26 @@ const  server = createServer(app);
 const io = connectToSocket(server);
 
  
-app.use(cors({
-    origin: "https://zoomclonefrontendd.onrender.com",
+const allowedOrigins = [
+    "https://zoomclonefrontendd.onrender.com",
+    "http://localhost:5173",
+];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("CORS policy: Origin not allowed"));
+        }
+    },
     credentials: true,
-}));
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json({limit:"40kb"}));
 
