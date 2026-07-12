@@ -10,6 +10,7 @@ export const AuthContext = createContext({});
 const client = axios.create({
     baseURL: `${server}/api/v1/users`
 })
+console.log("VITE_SERVER =", import.meta.env.VITE_SERVER);
 
 
 export const AuthProvider = ({ children }) => {
