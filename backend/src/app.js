@@ -22,7 +22,6 @@ const  server = createServer(app);
 
 const io = connectToSocket(server);
 
- 
 const allowedOrigins = [
     "https://zoomclonefrontendd.onrender.com",
     "http://localhost:5173",
@@ -42,6 +41,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use((req, res, next) => {
     if (req.method === "OPTIONS") {
         res.header("Access-Control-Allow-Origin", req.header("Origin") || "");
